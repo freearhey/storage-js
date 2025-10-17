@@ -2,11 +2,18 @@
   "name": "@freearhey/storage-js",
   "version": "0.1.0",
   "description": "Node.js utility for managing file storage",
-  "main": "./src/index.ts",
   "type": "module",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
   "scripts": {
+    "build": "pkgroll --clean-dist",
     "lint": "npx eslint ./src/**/*.ts ./tests/**/*.ts",
-    "test": "vitest run"
+    "test": "npx vitest run"
   },
   "keywords": [],
   "author": "Arhey",
@@ -16,15 +23,16 @@
   },
   "homepage": "https://github.com/freearhey/storage-js#readme",
   "dependencies": {
+    "@types/fs-extra": "^11.0.4",
     "fs-extra": "^11.3.1",
     "glob": "^11.0.3"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.3.1",
     "@eslint/js": "^9.24.0",
-    "@types/fs-extra": "^11.0.4",
     "eslint": "^9.24.0",
     "globals": "^16.0.0",
+    "pkgroll": "^2.19.0",
     "typescript": "^5.2.2",
     "typescript-eslint": "^8.29.1",
     "vitest": "^3.1.1"
